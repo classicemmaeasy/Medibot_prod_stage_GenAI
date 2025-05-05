@@ -1,4 +1,4 @@
-# End-to-end-Medical-Chatbot-using-Llama2
+# End-to-end-Medical-Chatbot-using-Llama3 8b or 70b
 
 # How to run?
 ### STEPS:
@@ -32,20 +32,17 @@ pip install -r requirements.txt
 
 ```ini
 PINECONE_API_KEY = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-PINECONE_API_ENV = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+GROQ_API_KEY= "xxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 ```
 
 
-### Download the quantize model from the link provided in model folder & keep the model in the model directory:
+### load the model from the link provided below:
 
 ```ini
-## Download the Llama 2 Model:
+## load the Llama 3 Model or any model of your choice:
 
-llama-2-7b-chat.ggmlv3.q4_0.bin
+https://console.groq.com/docs/models
 
-
-## From the following link:
-https://huggingface.co/TheBloke/Llama-2-7B-Chat-GGML/tree/main
 ```
 
 ```bash
@@ -69,7 +66,7 @@ open up localhost:
 - Python
 - LangChain
 - Flask
-- Meta Llama2
+- Meta Llama3
 - Pinecone
 
 # AWS-CICD-Deployment-with-Github-Actions
