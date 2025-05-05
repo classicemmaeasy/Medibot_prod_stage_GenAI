@@ -40,7 +40,7 @@ index_name = "medicalchatbot"
 
 
 
-llm=ChatGroq(model='llama-3.3-70b-versatile') #mixtral-8x7b-32768
+llm=ChatGroq(model='llama-3.1-8b-instant') #mixtral-8x7b-32768
 # llm.model_name, llm
  
 # Embed each chunk and upsert the embedding into your database
