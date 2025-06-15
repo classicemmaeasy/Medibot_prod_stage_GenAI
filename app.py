@@ -1,22 +1,44 @@
-from flask import Flask, render_template, jsonify, request
-from src.helper import *
+# from flask import Flask, render_template, jsonify, request
+# from src.helper import *
+# # from store_index import text_chunks
+# from langchain_pinecone import PineconeVectorStore
+# from langchain_groq import ChatGroq
+# from src.helper import download_hugging_face_embeddings
+
+# from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
+# from langchain.chains import RetrievalQA
+# from langchain.chains.combine_documents import create_stuff_documents_chain
+# from langchain.chains import create_retrieval_chain
+
+
+# from langchain.vectorstores import Pinecone
+# # from pinecone import Pinecone, ServerlessSpec
+# from dotenv import load_dotenv
+# import os
+
+# from src.prompt import *
+
+
+
+from flask import Flask, render_template, request
+from src.helper import download_hugging_face_embeddings
 # from store_index import text_chunks
 from langchain_pinecone import PineconeVectorStore
 from langchain_groq import ChatGroq
 from src.helper import download_hugging_face_embeddings
 
-from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
-from langchain.chains import RetrievalQA
+from langchain_core.prompts import ChatPromptTemplate
+# from langchain.chains import RetrievalQA
 from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain.chains import create_retrieval_chain
 
 
-from langchain.vectorstores import Pinecone
+# from langchain.vectorstores import Pinecone
 # from pinecone import Pinecone, ServerlessSpec
 from dotenv import load_dotenv
 import os
 
-from src.prompt import *
+from src.prompt import system_prompt
 
 
 app= Flask(__name__)
@@ -59,8 +81,6 @@ template = ChatPromptTemplate.from_messages([
 
 question_answer_chain= create_stuff_documents_chain(llm,template)
 rag_chain= create_retrieval_chain(retriever, question_answer_chain)
-
-
 
 
 @app.route('/')

@@ -1,0 +1,18 @@
+[cerebrium.deployment]
+name    = "medicalchatbot"
+include = ["./*", "app.py", "requirements.txt"]
+exclude = [".*", "__pycache__"]
+
+[cerebrium.runtime.custom]
+dockerfile_path       = "./Dockerfile"
+entrypoint            = ["python3", "app.py"]
+port                  = 8080
+healthcheck_endpoint  = "/health"
+
+[cerebrium.hardware]
+provider   = "aws"
+region     = "us-east-1"
+compute    = "TURING_T4"   # NVIDIA T4 GPU
+gpu_count  = 1
+cpu        = 2
+memory     = 16.0

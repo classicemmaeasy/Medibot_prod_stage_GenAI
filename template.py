@@ -12,6 +12,7 @@ list_of_files = [
     ".env",
     "setup.py",
     "notebook/code.ipynb",
+    "./cerebrium.toml",
 ]
 
 

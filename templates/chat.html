@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Docbot</title>
-
   <style>
     body {
       margin: 0;
@@ -31,7 +30,7 @@
       box-shadow: 0 4px 10px rgba(0,0,0,0.2);
       display: flex;
       flex-direction: column;
-      align-items: flex-start; /* align everything to the left */
+      align-items: flex-start;
       position: relative;
     }
 
@@ -50,7 +49,7 @@
       font-size: 14px;
       margin-top: 5px;
       color: #e0e0e0;
-      margin-left: 55px; /* aligns with icon and MedBot text */
+      margin-left: 55px;
     }
 
     .toggle {
@@ -133,9 +132,9 @@
 
     .user {
       align-self: flex-end;
-      background: linear-gradient(135deg, #a8edea, #fed6e3);
+      background: linear-gradient(135deg, #ffffff, #f0f0f0);
       color: black;
-      box-shadow: 0 4px 8px rgba(255, 100, 150, 0.3);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 
     .input-area {
@@ -163,8 +162,7 @@
     }
 
     .input-area button {
-      background: linear-gradient(135deg, #00b4db, #0083b0);
-      color: white;
+      background: linear-gradient(135deg, #00b4db, #84cee6);
       border: none;
       padding: 12px 18px;
       margin-left: 10px;
@@ -173,15 +171,22 @@
       font-size: 16px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.2);
       transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .input-area button img {
+      width: 20px;
+      height: 20px;
     }
 
     .input-area button:hover {
-      background: linear-gradient(135deg, #005bea, #00c6fb);
+      background: linear-gradient(135deg, #99b9ed, #83d5eb);
       box-shadow: 0 6px 15px rgba(0,0,0,0.3);
       transform: scale(1.05);
     }
 
-    /* Typing Dots */
     .typing {
       display: inline-flex;
       margin-left: 10px;
@@ -209,8 +214,6 @@
       20% { opacity: 1; }
       100% { opacity: 0.2; }
     }
-
-    /* Dark Mode */
     body.dark {
       background: linear-gradient(135deg, #232526, #414345);
       color: #eee;
@@ -236,14 +239,13 @@
     }
 
     body.dark .input-area button {
-      background: linear-gradient(135deg, #667eea, #764ba2);
+      background: linear-gradient(135deg, #758ae9, #ad80db);
     }
 
     body.dark .input-area button:hover {
-      background: linear-gradient(135deg, #5f72bd, #9b23ea);
+      background: linear-gradient(135deg, #acbbf8, #d3adec);
     }
 
-    /* Animations */
     @keyframes fadeIn {
       0% { opacity: 0; transform: translateY(-20px);}
       100% { opacity: 1; transform: translateY(0);}
@@ -255,32 +257,31 @@
     }
   </style>
 </head>
-
 <body>
+  <div class="container">
+    <header>
+      <div class="toggle">
+        <input type="checkbox" id="modeSwitch">
+        <label for="modeSwitch" class="switch"></label>
+      </div>
+      <div class="header-top">
+        <img src="https://cdn-icons-png.flaticon.com/512/3774/3774299.png" alt="Doctor Icon" class="doctor-icon">
+        <h2>Docbot</h2>
+      </div>
+      <div class="subtext">Ask me anything about your health</div>
+    </header>
 
-<div class="container">
-  <header>
-    <div class="toggle">
-      <input type="checkbox" id="modeSwitch">
-      <label for="modeSwitch" class="switch"></label>
+    <div class="chat-window" id="chatWindow">
+      <!-- Chat messages will appear here -->
     </div>
-    <div class="header-top">
-      <img src="https://cdn-icons-png.flaticon.com/512/3774/3774299.png" alt="Doctor Icon" class="doctor-icon">
-      <h2>Docbot</h2>
+
+    <div class="input-area">
+      <input type="text" id="userInput" placeholder="Type your message...">
+      <button onclick="sendMessage()">
+        <img src="https://cdn-icons-png.flaticon.com/128/3682/3682321.png" alt="Send Icon">
+      </button>
     </div>
-    <div class="subtext">Ask me anything about your health</div>
-  </header>
-
-  <div class="chat-window" id="chatWindow">
-    <!-- No initial bot message -->
-  </div>
-
-  <div class="input-area">
-    <input type="text" id="userInput" placeholder="Type your message...">
-    <button onclick="sendMessage()">Send</button>
-  </div>
 </div>
-
 <script>
     const modeSwitch = document.getElementById('modeSwitch');
   

@@ -60,13 +60,15 @@ Now,
 open up localhost:
 ```
 
+### Project Architecture:
+
 
 ### Techstack Used:
 
 - Python
 - LangChain
 - Flask
-- Meta Llama3
+- Grok - Meta Llama3 & OpenAI- GPT 4
 - Pinecone
 
 # AWS-CICD-Deployment-with-Github-Actions
